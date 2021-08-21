@@ -1,4 +1,4 @@
-package com.dynxsty.mongodbexporter.pages;
+package com.dynxsty.mongodbexporter.windows;
 
 import com.dynxsty.mongodbexporter.Constants;
 import com.mongodb.MongoClient;
