@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+    id'com.github.johnrengelman.shadow' version '5.2.0'
+}
+
+group 'com.dynxsty.mongodbexporter'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+
+    implementation group: 'com.formdev', name: 'flatlaf', version: '1.5'
+    implementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.5'
+    implementation 'org.mongodb:mongodb-driver:3.12.10'
+    implementation 'com.google.code.gson:gson:2.8.7'
+}
+
+jar{
+    manifest{ attributes("Manifest-Version": "1.0", "Main-Class": "com.dynxsty.mongodbexporter.Main") }
+}
+
+tasks.withType(JavaCompile){ options.encoding = 'UTF-8'}
+tasks.withType( JavaCompile ).configureEach {
+    options.forkOptions.jvmArgs.addAll( ['--add-opens', 'jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED'] )
+}
+
+test { useJUnitPlatform() }
