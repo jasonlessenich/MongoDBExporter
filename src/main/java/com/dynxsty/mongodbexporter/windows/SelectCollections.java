@@ -141,14 +141,12 @@ public class SelectCollections extends JFrame {
                 JOptionPane.showMessageDialog(new JFrame(), "You need to check at least one collection!");
                 return;
             }
-
             String path = saveToDirectory().getPath();
 
             JsonWriterSettings settings = JsonWriterSettings.builder()
                 .outputMode(JsonMode.RELAXED)
                 .indent(true)
                 .build();
-
             dispose();
 
             for (var colDoc : checkedCollections.entrySet()) {
@@ -165,7 +163,6 @@ public class SelectCollections extends JFrame {
                     sb.append(",");
                 }
                     file.write(sb.substring(0, sb.length() - 1) + "]");
-
                     file.flush();
                     file.close();
 

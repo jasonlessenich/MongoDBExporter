@@ -142,7 +142,7 @@ public class InputURL extends JFrame {
                 new SelectCollections(mongoClient);
 
             } catch (Exception exception) {
-                showMessageDialog(new JFrame(), exception.getMessage());
+                JOptionPane.showMessageDialog(null, exception.getMessage(), "An Error occurred", JOptionPane.ERROR_MESSAGE);
             }
         }
     };
